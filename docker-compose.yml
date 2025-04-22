@@ -120,6 +120,8 @@ services:
       - auth-api
       - router-api
       - van-api
+    environment:
+      - OCEL0T_ENV=docker
     networks:
       - backend
 
