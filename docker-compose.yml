@@ -109,6 +109,20 @@ services:
     networks:
       - backend
 
+  gateway:
+    build:
+      context: ../gateway-api-core
+      dockerfile: ./Dockerfile
+    container_name: gateway
+    ports:
+      - "6000:80"
+    depends_on:
+      - auth-api
+      - router-api
+      - van-api
+    networks:
+      - backend
+
 networks:
   backend:
     driver: bridge
