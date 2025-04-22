@@ -27,11 +27,11 @@ services:
     networks:
       - backend
 
-  van-api:
+  payments-api:
     build:
-      context: ../../van-api-core
+      context: ../../payments-api-core
       dockerfile: ./Dockerfile
-    container_name: van-api
+    container_name: payments-api
     ports:
       - "5003:8080"
     environment:
@@ -50,9 +50,9 @@ services:
     depends_on:
       - auth-api
       - router-api
-      - van-api
+      - payments-api
     environment:
-      - OCEL0T_ENV=docker
+      - ENV=docker
     networks:
       - backend
 
