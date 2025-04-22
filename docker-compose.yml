@@ -48,10 +48,66 @@ services:
     networks:
       - backend
     healthcheck:
-      test: ["CMD", "pg_isready", "-U", "admin"]
+      test: ["CMD", "pg_isready", "-U", "master"]
       interval: 30s
       timeout: 10s
       retries: 5
+
+  auth-api:
+    build:
+      context: ../auth-api-core
+      dockerfile: ./Dockerfile
+    container_name: auth-api
+    ports:
+      - "5001:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=master;Username=admin;Password=admin
+    networks:
+      - backend
+
+  router-api:
+    build:
+      context: ../routes-api-core
+      dockerfile: ./Dockerfile
+    container_name: router-api
+    ports:
+      - "5002:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=master;Username=admin;Password=admin
+    networks:
+      - backend
+
+  van-api:
+    build:
+      context: ../van-api-core
+      dockerfile: ./Dockerfile
+    container_name: van-api
+    ports:
+      - "5003:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=master;Username=admin;Password=admin
+    networks:
+      - backend
 
 networks:
   backend:
