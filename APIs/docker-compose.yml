@@ -40,11 +40,11 @@ services:
     networks:
       - backend
 
-  alunos-api:
+  pessoas-api:
     build:
-      context: ../../alunos-api-core
+      context: ../../pessoas-api-core
       dockerfile: ./Dockerfile
-    container_name: alunos-api
+    container_name: pessoas-api
     ports:
       - "5004:8080"
     environment:
@@ -64,7 +64,7 @@ services:
       - auth-api
       - router-api
       - payments-api
-      - alunos-api
+      - pessoas-api
     environment:
       - ENV=docker
     networks:
