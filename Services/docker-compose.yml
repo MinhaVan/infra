@@ -55,7 +55,7 @@ services:
 
 networks:
   services:
-    driver: bridge
+    external: true
 
 volumes:
   pgdata:
