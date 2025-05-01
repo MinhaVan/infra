@@ -59,7 +59,7 @@ services:
       - ConnectionStrings__RedisConnection=redis-dev:9379
       - ConnectionStrings__RabbitConnection=rabbitmq-dev
     networks:
-      - services
+      - services-dev
 
   gateway-dev:
     build:
@@ -76,7 +76,7 @@ services:
     environment:
       - ENV=Development
     networks:
-      - services
+      - services-dev
 
 networks:
   services:
