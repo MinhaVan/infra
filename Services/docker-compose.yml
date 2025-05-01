@@ -46,7 +46,7 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
-      - services
+      - services-dev
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "master"]
       interval: 30s
