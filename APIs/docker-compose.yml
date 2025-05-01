@@ -7,11 +7,11 @@ services:
       dockerfile: ./Dockerfile
     container_name: auth-api-dev
     ports:
-      - "25001:8080"
+      - "9001:8080"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Host=postgres-dev;Database=auth-db;Username=admin;Password=admin
-      - ConnectionStrings__RedisConnection=redis-dev:26379
+      - ConnectionStrings__RedisConnection=redis-dev:9379
       - ConnectionStrings__RabbitConnection=rabbitmq-dev
     networks:
       - services-dev
@@ -22,11 +22,11 @@ services:
       dockerfile: ./Dockerfile
     container_name: router-api-dev
     ports:
-      - "25002:8080"
+      - "9002:8080"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Host=postgres-dev;Database=routes-db;Username=admin;Password=admin
-      - ConnectionStrings__RedisConnection=redis-dev:26379
+      - ConnectionStrings__RedisConnection=redis-dev:9379
       - ConnectionStrings__RabbitConnection=rabbitmq-dev
     networks:
       - services-dev
@@ -37,11 +37,11 @@ services:
       dockerfile: ./Dockerfile
     container_name: payments-api-dev
     ports:
-      - "25003:8080"
+      - "9003:8080"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Host=postgres-dev;Database=payments-db;Username=admin;Password=admin
-      - ConnectionStrings__RedisConnection=redis-dev:26379
+      - ConnectionStrings__RedisConnection=redis-dev:9379
       - ConnectionStrings__RabbitConnection=rabbitmq-dev
     networks:
       - services-dev
@@ -52,11 +52,11 @@ services:
       dockerfile: ./Dockerfile
     container_name: pessoas-api-dev
     ports:
-      - "25004:8080"
+      - "9004:8080"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Host=postgres-dev;Database=pessoas-db;Username=admin;Password=admin
-      - ConnectionStrings__RedisConnection=redis-dev:26379
+      - ConnectionStrings__RedisConnection=redis-dev:9379
       - ConnectionStrings__RabbitConnection=rabbitmq-dev
     networks:
       - services
@@ -67,7 +67,7 @@ services:
       dockerfile: ./Dockerfile
     container_name: gateway-dev
     ports:
-      - "28080:8080"
+      - "9080:8080"
     depends_on:
       - auth-api-dev
       - router-api-dev

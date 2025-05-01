@@ -6,8 +6,8 @@ services:
     container_name: rabbitmq-dev
     restart: always
     ports:
-      - "25672:5672"
-      - "25672:15672"
+      - "9672:5672"
+      - "9672:15672"
     environment:
       RABBITMQ_DEFAULT_USER: admin
       RABBITMQ_DEFAULT_PASS: admin
@@ -24,7 +24,7 @@ services:
     container_name: redis-dev
     restart: always
     ports:
-      - "26379:6379"
+      - "9379:6379"
     networks:
       - services-dev
     healthcheck:
@@ -38,7 +38,7 @@ services:
     container_name: postgres-dev
     restart: always
     ports:
-      - "25432:5432"
+      - "9432:5432"
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
