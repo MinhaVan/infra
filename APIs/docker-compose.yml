@@ -79,5 +79,5 @@ services:
       - services-dev
 
 networks:
-  services:
+  services-dev:
     external: true
