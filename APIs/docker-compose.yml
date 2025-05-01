@@ -63,7 +63,7 @@ services:
 
   gateway-dev:
     build:
-      context: ../../gateway-api-core-dev
+      context: ../../gateway-api-core
       dockerfile: ./Dockerfile
     container_name: gateway-dev
     ports:
