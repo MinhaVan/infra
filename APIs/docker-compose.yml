@@ -7,7 +7,7 @@ services:
       dockerfile: ./Dockerfile
     container_name: auth-api-dev
     ports:
-      - "9001:8080"
+      - "19001:8080"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Host=postgres-dev;Database=auth-db;Username=admin;Password=admin
@@ -22,7 +22,7 @@ services:
       dockerfile: ./Dockerfile
     container_name: router-api-dev
     ports:
-      - "9002:8080"
+      - "19002:8080"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Host=postgres-dev;Database=routes-db;Username=admin;Password=admin
@@ -37,7 +37,7 @@ services:
       dockerfile: ./Dockerfile
     container_name: payments-api-dev
     ports:
-      - "9003:8080"
+      - "19003:8080"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Host=postgres-dev;Database=payments-db;Username=admin;Password=admin
@@ -52,7 +52,7 @@ services:
       dockerfile: ./Dockerfile
     container_name: pessoas-api-dev
     ports:
-      - "9004:8080"
+      - "19004:8080"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Host=postgres-dev;Database=pessoas-db;Username=admin;Password=admin
@@ -67,7 +67,7 @@ services:
       dockerfile: ./Dockerfile
     container_name: gateway-dev
     ports:
-      - "9080:8080"
+      - "19080:8080"
     depends_on:
       - auth-api-dev
       - router-api-dev
