@@ -1,44 +1,44 @@
 version: "3.8"
 
 services:
-  rabbitmq:
+  rabbitmq-dev:
     image: rabbitmq:3-management
-    container_name: rabbitmq
+    container_name: rabbitmq-dev
     restart: always
     ports:
-      - "5672:5672"
-      - "15672:15672"
+      - "25672:5672"
+      - "25672:15672"
     environment:
       RABBITMQ_DEFAULT_USER: admin
       RABBITMQ_DEFAULT_PASS: admin
     networks:
-      - services
+      - services-dev
     healthcheck:
       test: ["CMD", "rabbitmqctl", "status"]
       interval: 30s
       timeout: 10s
       retries: 5
 
-  redis:
+  redis-dev:
     image: redis:latest
-    container_name: redis
+    container_name: redis-dev
     restart: always
     ports:
-      - "6379:6379"
+      - "26379:6379"
     networks:
-      - services
+      - services-dev
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 30s
       timeout: 10s
       retries: 5
 
-  postgres:
+  postgres-dev:
     image: postgres:16
-    container_name: postgres
+    container_name: postgres-dev
     restart: always
     ports:
-      - "5432:5432"
+      - "25432:5432"
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
@@ -54,7 +54,7 @@ services:
       retries: 5
 
 networks:
-  services:
+  services-dev:
     external: true
 
 volumes:

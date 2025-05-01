@@ -1,80 +1,80 @@
 version: "3.8"
 
 services:
-  auth-api:
+  auth-api-dev:
     build:
       context: ../../auth-api-core
       dockerfile: ./Dockerfile
-    container_name: auth-api
+    container_name: auth-api-dev
     ports:
-      - "5001:8080"
+      - "25001:8080"
     environment:
-      - ASPNETCORE_ENVIRONMENT=Release
-      - ConnectionStrings__DefaultConnection=Host=postgres;Database=auth-db;Username=admin;Password=admin
-      - ConnectionStrings__RedisConnection=redis:6379
-      - ConnectionStrings__RabbitConnection=rabbitmq
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres-dev;Database=auth-db;Username=admin;Password=admin
+      - ConnectionStrings__RedisConnection=redis-dev:26379
+      - ConnectionStrings__RabbitConnection=rabbitmq-dev
     networks:
-      - services
+      - services-dev
 
-  router-api:
+  router-api-dev:
     build:
       context: ../../routes-api-core
       dockerfile: ./Dockerfile
-    container_name: router-api
+    container_name: router-api-dev
     ports:
-      - "5002:8080"
+      - "25002:8080"
     environment:
-      - ASPNETCORE_ENVIRONMENT=Release
-      - ConnectionStrings__DefaultConnection=Host=postgres;Database=routes-db;Username=admin;Password=admin
-      - ConnectionStrings__RedisConnection=redis:6379
-      - ConnectionStrings__RabbitConnection=rabbitmq
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres-dev;Database=routes-db;Username=admin;Password=admin
+      - ConnectionStrings__RedisConnection=redis-dev:26379
+      - ConnectionStrings__RabbitConnection=rabbitmq-dev
     networks:
-      - services
+      - services-dev
 
-  payments-api:
+  payments-api-dev:
     build:
       context: ../../payments-api-core
       dockerfile: ./Dockerfile
-    container_name: payments-api
+    container_name: payments-api-dev
     ports:
-      - "5003:8080"
+      - "25003:8080"
     environment:
-      - ASPNETCORE_ENVIRONMENT=Release
-      - ConnectionStrings__DefaultConnection=Host=postgres;Database=payments-db;Username=admin;Password=admin
-      - ConnectionStrings__RedisConnection=redis:6379
-      - ConnectionStrings__RabbitConnection=rabbitmq
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres-dev;Database=payments-db;Username=admin;Password=admin
+      - ConnectionStrings__RedisConnection=redis-dev:26379
+      - ConnectionStrings__RabbitConnection=rabbitmq-dev
     networks:
-      - services
+      - services-dev
 
-  pessoas-api:
+  pessoas-api-dev:
     build:
       context: ../../pessoas-api-core
       dockerfile: ./Dockerfile
-    container_name: pessoas-api
+    container_name: pessoas-api-dev
     ports:
-      - "5004:8080"
+      - "25004:8080"
     environment:
-      - ASPNETCORE_ENVIRONMENT=Release
-      - ConnectionStrings__DefaultConnection=Host=postgres;Database=pessoas-db;Username=admin;Password=admin
-      - ConnectionStrings__RedisConnection=redis:6379
-      - ConnectionStrings__RabbitConnection=rabbitmq
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres-dev;Database=pessoas-db;Username=admin;Password=admin
+      - ConnectionStrings__RedisConnection=redis-dev:26379
+      - ConnectionStrings__RabbitConnection=rabbitmq-dev
     networks:
       - services
 
-  gateway:
+  gateway-dev:
     build:
-      context: ../../gateway-api-core
+      context: ../../gateway-api-core-dev
       dockerfile: ./Dockerfile
-    container_name: gateway
+    container_name: gateway-dev
     ports:
-      - "8080:8080"
+      - "28080:8080"
     depends_on:
-      - auth-api
-      - router-api
-      - payments-api
-      - pessoas-api
+      - auth-api-dev
+      - router-api-dev
+      - payments-api-dev
+      - pessoas-api-dev
     environment:
-      - ENV=docker
+      - ENV=Development
     networks:
       - services
 
