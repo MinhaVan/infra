@@ -12,7 +12,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Host=postgres-dev;Database=auth-db;Username=admin;Password=admin
-      - ConnectionStrings__RedisConnection=redis-dev:19379
+      - ConnectionStrings__RedisConnection=redis-dev:6379
       - ConnectionStrings__RabbitConnection=rabbitmq-dev
     networks:
       - services-dev
@@ -28,7 +28,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Host=postgres-dev;Database=routes-db;Username=admin;Password=admin
-      - ConnectionStrings__RedisConnection=redis-dev:19379
+      - ConnectionStrings__RedisConnection=redis-dev:6379
       - ConnectionStrings__RabbitConnection=rabbitmq-dev
     networks:
       - services-dev
@@ -44,7 +44,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Host=postgres-dev;Database=payments-db;Username=admin;Password=admin
-      - ConnectionStrings__RedisConnection=redis-dev:19379
+      - ConnectionStrings__RedisConnection=redis-dev:6379
       - ConnectionStrings__RabbitConnection=rabbitmq-dev
     networks:
       - services-dev
@@ -60,7 +60,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Host=postgres-dev;Database=pessoas-db;Username=admin;Password=admin
-      - ConnectionStrings__RedisConnection=redis-dev:19379
+      - ConnectionStrings__RedisConnection=redis-dev:6379
       - ConnectionStrings__RabbitConnection=rabbitmq-dev
     networks:
       - services-dev
