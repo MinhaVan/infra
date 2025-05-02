@@ -11,8 +11,8 @@ services:
       - "19001:8080"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Host=postgres-dev:19432;Database=auth-db;Username=admin;Password=admin
-      - ConnectionStrings__RedisConnection=redis-dev:19379
+      - ConnectionStrings__DefaultConnection=Host=postgres-dev;Database=auth-db;Username=admin;Password=admin
+      - ConnectionStrings__RedisConnection=redis-dev:6379
       - ConnectionStrings__RabbitConnection=rabbitmq-dev
     networks:
       - services-dev
@@ -27,8 +27,8 @@ services:
       - "19002:8080"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Host=postgres-dev:19432;Database=routes-db;Username=admin;Password=admin
-      - ConnectionStrings__RedisConnection=redis-dev:19379
+      - ConnectionStrings__DefaultConnection=Host=postgres-dev;Database=auth-db;Username=admin;Password=admin
+      - ConnectionStrings__RedisConnection=redis-dev:6379
       - ConnectionStrings__RabbitConnection=rabbitmq-dev
     networks:
       - services-dev
@@ -43,8 +43,8 @@ services:
       - "19003:8080"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Host=postgres-dev:19432;Database=payments-db;Username=admin;Password=admin
-      - ConnectionStrings__RedisConnection=redis-dev:19379
+      - ConnectionStrings__DefaultConnection=Host=postgres-dev;Database=auth-db;Username=admin;Password=admin
+      - ConnectionStrings__RedisConnection=redis-dev:6379
       - ConnectionStrings__RabbitConnection=rabbitmq-dev
     networks:
       - services-dev
@@ -59,8 +59,8 @@ services:
       - "19004:8080"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Host=postgres-dev:19432;Database=pessoas-db;Username=admin;Password=admin
-      - ConnectionStrings__RedisConnection=redis-dev:19379
+      - ConnectionStrings__DefaultConnection=Host=postgres-dev;Database=auth-db;Username=admin;Password=admin
+      - ConnectionStrings__RedisConnection=redis-dev:6379
       - ConnectionStrings__RabbitConnection=rabbitmq-dev
     networks:
       - services-dev
