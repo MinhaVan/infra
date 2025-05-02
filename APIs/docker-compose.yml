@@ -2,6 +2,7 @@ version: "3.8"
 
 services:
   auth-api:
+    image: apis-auth-api:latest
     build:
       context: ../../auth-api-core
       dockerfile: ./Dockerfile
@@ -17,6 +18,7 @@ services:
       - services
 
   router-api:
+    image: apis-router-api:latest
     build:
       context: ../../routes-api-core
       dockerfile: ./Dockerfile
@@ -32,6 +34,7 @@ services:
       - services
 
   payments-api:
+    image: apis-payments-api:latest
     build:
       context: ../../payments-api-core
       dockerfile: ./Dockerfile
@@ -47,6 +50,7 @@ services:
       - services
 
   pessoas-api:
+    image: apis-pessoas-api:latest
     build:
       context: ../../pessoas-api-core
       dockerfile: ./Dockerfile
@@ -62,6 +66,7 @@ services:
       - services
 
   gateway:
+    image: apis-gateway-api:latest
     build:
       context: ../../gateway-api-core
       dockerfile: ./Dockerfile
