@@ -58,7 +58,7 @@ services:
       dockerfile: ./Dockerfile
     container_name: gateway-api-dev
     ports:
-      - "19080:8080"
+      - "19005:8080"
     depends_on:
       - auth-api-dev
       - router-api-dev
