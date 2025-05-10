@@ -51,12 +51,12 @@ services:
     networks:
       - services-dev
 
-  gateway-dev:
+  gateway-api-dev:
     image: apis-gateway-api-dev:latest
     build:
       context: ../../gateway-api-core
       dockerfile: ./Dockerfile
-    container_name: gateway-dev
+    container_name: gateway-api-dev
     ports:
       - "19080:8080"
     depends_on:
