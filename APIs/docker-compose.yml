@@ -13,7 +13,7 @@ services:
       - services-dev
 
   router-api-dev:
-    image: apis-routes-api-dev:latest
+    image: apis-router-api-dev:latest
     build:
       context: ../../routes-api-core
       dockerfile: ./Dockerfile
