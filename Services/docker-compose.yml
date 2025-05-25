@@ -47,7 +47,7 @@ services:
     networks:
       - services-dev
     healthcheck:
-      test: ["CMD", "pg_isready", "-U", "master"]
+      test: ["CMD", "pg_isready", "-U", "admin"]
       interval: 30s
       timeout: 10s
       retries: 5
