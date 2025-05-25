@@ -10,7 +10,7 @@ services:
       - services-dev
 
   router-api-dev:
-    image: apis-router-api-dev:latest
+    image: ghcr.io/minhavan/router-api-dev:latest
     build:
       context: ../../routes-api-core
       dockerfile: ./Dockerfile
@@ -23,7 +23,7 @@ services:
       - services-dev
 
   payments-api-dev:
-    image: apis-payments-api-dev:latest
+    image: ghcr.io/minhavan/payments-api-dev:latest
     build:
       context: ../../payments-api-core
       dockerfile: ./Dockerfile
@@ -36,7 +36,7 @@ services:
       - services-dev
 
   pessoas-api-dev:
-    image: apis-pessoas-api-dev:latest
+    image: ghcr.io/minhavan/pessoas-api-dev:latest
     build:
       context: ../../pessoas-api-core
       dockerfile: ./Dockerfile
@@ -49,7 +49,7 @@ services:
       - services-dev
 
   gateway-api-dev:
-    image: apis-gateway-api-dev:latest
+    image: ghcr.io/minhavan/gateway-api-dev:latest
     build:
       context: ../../gateway-api-core
       dockerfile: ./Dockerfile
