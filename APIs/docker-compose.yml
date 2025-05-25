@@ -1,6 +1,6 @@
 services:
   auth-api-dev:
-    image: ghcr.io/MinhaVan/auth-api-dev:latest
+    image: ghcr.io/minhavan/auth-api-dev:latest
     container_name: auth-api-dev
     ports:
       - "19001:8080"
