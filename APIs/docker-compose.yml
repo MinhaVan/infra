@@ -1,9 +1,6 @@
 services:
   auth-api-dev:
-    image: apis-auth-api-dev:latest
-    build:
-      context: ../../auth-api-core
-      dockerfile: ./Dockerfile
+    image: ghcr.io/MinhaVan/auth-api-dev:latest
     container_name: auth-api-dev
     ports:
       - "19001:8080"
