@@ -11,9 +11,6 @@ services:
 
   router-api-dev:
     image: ghcr.io/minhavan/router-api-dev:latest
-    build:
-      context: ../../routes-api-core
-      dockerfile: ./Dockerfile
     container_name: router-api-dev
     ports:
       - "19002:8080"
@@ -24,9 +21,6 @@ services:
 
   payments-api-dev:
     image: ghcr.io/minhavan/payments-api-dev:latest
-    build:
-      context: ../../payments-api-core
-      dockerfile: ./Dockerfile
     container_name: payments-api-dev
     ports:
       - "19003:8080"
@@ -37,9 +31,6 @@ services:
 
   pessoas-api-dev:
     image: ghcr.io/minhavan/pessoas-api-dev:latest
-    build:
-      context: ../../pessoas-api-core
-      dockerfile: ./Dockerfile
     container_name: pessoas-api-dev
     ports:
       - "19004:8080"
@@ -50,9 +41,6 @@ services:
 
   gateway-api-dev:
     image: ghcr.io/minhavan/gateway-api-dev:latest
-    build:
-      context: ../../gateway-api-core
-      dockerfile: ./Dockerfile
     container_name: gateway-api-dev
     ports:
       - "19005:8080"
