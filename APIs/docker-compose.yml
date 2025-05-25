@@ -1,6 +1,9 @@
 services:
   auth-api-dev:
-    image: 54.163.143.108:5000/auth-api-dev:latest
+    image: apis-auth-api-dev:latest
+    build:
+      context: ../../auth-api-core
+      dockerfile: ./Dockerfile
     container_name: auth-api-dev
     ports:
       - "19001:8080"
@@ -10,7 +13,10 @@ services:
       - services-dev
 
   router-api-dev:
-    image: 54.163.143.108:5000/router-api-dev:latest
+    image: apis-router-api-dev:latest
+    build:
+      context: ../../routes-api-core
+      dockerfile: ./Dockerfile
     container_name: router-api-dev
     ports:
       - "19002:8080"
@@ -20,7 +26,10 @@ services:
       - services-dev
 
   payments-api-dev:
-    image: 54.163.143.108:5000/payments-api-dev:latest
+    image: apis-payments-api-dev:latest
+    build:
+      context: ../../payments-api-core
+      dockerfile: ./Dockerfile
     container_name: payments-api-dev
     ports:
       - "19003:8080"
@@ -30,7 +39,10 @@ services:
       - services-dev
 
   pessoas-api-dev:
-    image: 54.163.143.108:5000/pessoas-api-dev:latest
+    image: apis-pessoas-api-dev:latest
+    build:
+      context: ../../pessoas-api-core
+      dockerfile: ./Dockerfile
     container_name: pessoas-api-dev
     ports:
       - "19004:8080"
@@ -40,7 +52,10 @@ services:
       - services-dev
 
   gateway-api-dev:
-    image: 54.163.143.108:5000/gateway-api-dev:latest
+    image: apis-gateway-api-dev:latest
+    build:
+      context: ../../gateway-api-core
+      dockerfile: ./Dockerfile
     container_name: gateway-api-dev
     ports:
       - "19005:8080"
