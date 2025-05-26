@@ -8,8 +8,6 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
     networks:
       - services-dev
-    mem_limit: 512m
-    cpus: 0.5
 
   router-api-dev:
     image: ghcr.io/minhavan/router-api-dev:latest
@@ -20,8 +18,6 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
     networks:
       - services-dev
-    mem_limit: 1g
-    cpus: 1.0
 
   payments-api-dev:
     image: ghcr.io/minhavan/payments-api-dev:latest
@@ -32,8 +28,6 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
     networks:
       - services-dev
-    mem_limit: 512m
-    cpus: 0.5
 
   pessoas-api-dev:
     image: ghcr.io/minhavan/pessoas-api-dev:latest
@@ -44,8 +38,6 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
     networks:
       - services-dev
-    mem_limit: 512m
-    cpus: 0.5
 
   gateway-api-dev:
     image: ghcr.io/minhavan/gateway-api-dev:latest
@@ -61,8 +53,6 @@ services:
       - ENV=Development
     networks:
       - services-dev
-    mem_limit: 512m
-    cpus: 0.5
 
 networks:
   services-dev:
