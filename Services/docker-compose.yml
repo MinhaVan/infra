@@ -51,6 +51,22 @@ services:
       interval: 30s
       timeout: 10s
       retries: 5
+    mem_limit: 1g
+    cpus: 1.0
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: cadvisor
+    ports:
+      - "8085:8080"
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    restart: unless-stopped
+    networks:
+      - services-dev
 
 networks:
   services-dev:
