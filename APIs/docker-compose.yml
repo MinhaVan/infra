@@ -39,6 +39,14 @@ services:
     networks:
       - services-dev
 
+  consumers-dev:
+    image: ghcr.io/minhavan/consumers-dev:latest
+    container_name: consumers-dev
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - services-dev
+
   gateway-api-dev:
     image: ghcr.io/minhavan/gateway-api-dev:latest
     container_name: gateway-api-dev
