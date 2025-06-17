@@ -47,11 +47,10 @@ services:
     networks:
       - services-dev
 
-  frontend:
+  van-app-dev:
     image: ghcr.io/minhavan/van-app-dev:latest
-    build: .
     ports:
-      - "80:80"
+      - "19006:80"
     restart: unless-stopped
     networks:
       - services-dev
