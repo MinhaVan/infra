@@ -47,6 +47,15 @@ services:
     networks:
       - services-dev
 
+  frontend:
+    image: ghcr.io/minhavan/van-app-dev:latest
+    build: .
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    networks:
+      - services-dev
+
   gateway-api-dev:
     image: ghcr.io/minhavan/gateway-api-dev:latest
     container_name: gateway-api-dev
