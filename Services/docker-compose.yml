@@ -52,9 +52,27 @@ services:
       timeout: 10s
       retries: 5
 
+  whatsapp-service:
+    build:
+      context: ./../../whatsapp-service
+    container_name: whatsapp-service
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - whatsapp-data:/app/.wwebjs_auth
+    networks:
+      - services-dev
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
 networks:
   services-dev:
     external: true
 
 volumes:
   pgdata:
+  whatsapp-data:
