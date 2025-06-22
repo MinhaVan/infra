@@ -39,11 +39,20 @@ services:
     networks:
       - services-dev
 
-  consumers-dev:
-    image: ghcr.io/minhavan/consumers-dev:latest
-    container_name: consumers-dev
+  localizacao-consumer-dev:
+    image: ghcr.io/minhavan/localizacao-consumer-dev:latest
+    container_name: localizacao-consumer-dev
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - services-dev
+
+  email-consumer-dev:
+    image: ghcr.io/minhavan/email-consumer-dev:latest
+    container_name: email-consumer-dev
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - SENDGRID_API_KEY=${SENDGRID_API_KEY}
     networks:
       - services-dev
 
